@@ -1,0 +1,96 @@
+
+select * from a_maha
+
+select * from a_dosen
+
+select * from a_niali
+
+select * from a_mkkuli
+
+
+delete from a_maha
+delete from a_dosen
+delete from a_mkkuli
+delete from a_nilai
+
+
+insert into a_maha (nim,nama,alamat,hp,email)
+values ('20180801321','ali','ciupa','081221735703','alie5962272@gmail.com')
+
+insert into a_maha (nim,nama,alamat,hp,email)
+values ('20180801322','bowo','bogor','081221735704','alie5962272@gmail.com')
+
+insert into a_maha (nim,nama,alamat,hp,email)
+values ('20180801325','joko','suakadamai','081221735705','alie5962272@gmail.com')
+
+insert into a_maha (nim,nama,alamat,hp,email)
+values ('20180801326','doodol','borgay','081221735706','alie5962272@gmail.com')
+
+insert into a_maha (nim,nama,alamat,hp,email)
+values ('20180801327','beras','padii','081221735707','alie5962272@gmail.com')
+
+insert into a_dosen (dosen,alamat,hp)
+values ('fahri','cisoka','0216777777')
+ 
+insert into a_dosen (dosen,alamat,hp)
+values ('fahrul','cisko','0216777777')
+
+insert into a_dosen (dosen,alamat,hp)
+values ('bahri','subro','0216777777')
+ 
+insert into a_dosen (dosen,alamat,hp)
+values ('goro','bokoko','0216777777')
+ 
+insert into a_dosen (dosen,alamat,hp)
+values ('bikor','ponja','0216777777')
+ 
+ 
+insert into a_mkkuli (kd_mk,nm_mk,sks,dosen)
+values ('101','sosis','3','bikor')
+
+insert into a_mkkuli (kd_mk,nm_mk,sks,dosen)
+values ('102','keju','3','goro')
+
+
+insert into a_mkkuli (kd_mk,nm_mk,sks,dosen)
+values ('103','roti','3','fahri')
+
+
+
+insert into a_nilai (kd_mk,nim,angka,huruf)
+values ('101','20180801321','','')
+
+insert into a_nilai (kd_mk,nim,angka,huruf)
+values ('101','20180801327','','')
+
+insert into a_nilai (kd_mk,nim,angka,huruf)
+values ('102','20180801321','','')
+
+insert into a_nilai (kd_mk,nim,angka,huruf)
+values ('102','20180801327','','')
+
+
+create trigger
+
+declare
+nilai number (2);
+hasil char (1);
+
+begin
+                  nilai = :new.angka;
+                  
+                  if nilai > 79 then
+                            hasil = 'A';
+                  elseif 69 < nilai < 80 then
+                             hasil = 'B'
+                  elseif 59 < nilai < 70 then
+                             hasil = 'c'
+                  elseif 49 < nilai < 60 then
+                             hasil = 'd'
+                  else 
+                             hasil = 'e'
+                  end if;
+         update nilai
+         set huruf = hasil
+         where kd_mk = :new.kd_mk and nim = :new.nim;
+end;
