@@ -1,6 +1,6 @@
 # Project Matlab Kalkulus 2
 .zero team
-![](https://liquipedia.net/commons/images/6/68/ZeRo_Esports.png)
+![](https://pngimage.net/wp-content/uploads/2018/06/matlab-icon-png-3.png)
 
 #### Requirement
 - MATLAB 2016 (R2016a)
